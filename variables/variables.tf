@@ -1,7 +1,3 @@
-variable "instance-name" {
-    type    =   string
-    default =   "web"
-}
 
 variable "ami_id" {
     type    =   string
@@ -10,7 +6,7 @@ variable "ami_id" {
 
 variable "instance-type" {
     type   =   string
-    default=   "t2.small"
+    #default=   "t2.small"
 }
 
 variable "tags" {
@@ -22,4 +18,9 @@ variable "tags" {
         component = "web"
         
     }
+}
+
+variable "cidr_blocks" {
+    type  = list
+    default = ["0.0.0.0/0"]
 }
