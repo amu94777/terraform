@@ -3,10 +3,10 @@ variable "ami_id" {
     default =   "ami-03265a0778a880afb"
 }
 
-# variable "instance-type" {
-#     type   =   string
-#     #default=   "t2.small"
-# }
+#  variable "instance-type" {
+#      type   =   string
+#      default=   "t2.small"
+#  }
 
 variable "tags" {
     type    =  map
@@ -22,9 +22,9 @@ variable "tags" {
 variable "cidr_blocks" {
     type  = list
     default = ["0.0.0.0/0"]
-}
+}   
 
-variable "instance-name" {
-    type = string
-    default = "mongodb"
+variable "instance-names" {
+    type = list
+    default = [ "mongodb" , "mysql" , "shipping" , "catalogue" , "user" ]
 }

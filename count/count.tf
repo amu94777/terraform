@@ -1,8 +1,11 @@
 resource "aws_instance" "myec2" {
+     count = 5
      ami            =   var.ami_id
-     instance_type  =   var.instance-name == "mongodb" ? "t3.small" : "t2.small"
+     instance_type  =   var.instance-names[count.index] == "mongodb" || var.instance-names[count.      index] == "catalogue" ? "t3.large" : "t2.large"
      vpc_security_group_ids = [aws_security_group.roboshop-all-sg.id]
-     tags           =   var.tags
+     tags           =   {
+        Name = var.instance-names[count.index]
+     }
   
 }
 
